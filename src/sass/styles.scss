@@ -1,0 +1,43 @@
+$font-stack: Helvetica, sans-serif;
+$primary-font-color: white;
+
+body {
+  margin: 0;
+  padding: 0;
+  font: 100% $font-stack;
+  background: url(../assets/img/background.gif);
+  background-size: cover;
+
+  // background-color: rgba(255,255,255,0.5);
+}
+h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 20vw;
+  font-family: 'Playfair Display SC', serif;
+  text-align: center;
+}
+#timer {
+  width: 100vw;
+  height: 24vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  div {
+    background-color: rgba(0,0,0,0.1);
+    border: 1px solid black;
+    border-radius: 2vw;
+    display: flex;
+    margin-left: 0.8vw;
+    align-items: center;
+    justify-content: center;
+    width: 24%;
+    p {
+      font-size: 10vw;
+      color: white;
+    }
+  }
+}
+
+#media, #blog, #devs {
+  display: none;
+}
