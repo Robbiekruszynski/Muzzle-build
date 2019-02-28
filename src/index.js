@@ -1,4 +1,5 @@
 import './sass/styles.scss';
+import $ from 'jquery';
 // import Icon from './icon.png';
 
 var countDownDate = new Date("Aug 2, 2019 13:00:00").getTime();
@@ -26,3 +27,9 @@ if(document.getElementById("days")) {
   }, 1000);
 
 }
+
+$(document).ready(function() {
+  $(".burger").click(function() {
+    $("#dropdown").fadeToggle();
+  });
+});

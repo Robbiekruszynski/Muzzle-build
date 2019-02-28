@@ -1,32 +1,65 @@
 $font-stack: Helvetica, sans-serif;
 $primary-font-color: white;
 
+@mixin size($arg...) {
+  @if length($arg) == 1{
+    width: nth($arg, 1);
+    height: nth($arg, 1);
+  }
+  @else if length($arg) == 2{
+    width: nth($arg, 1);
+    height: nth($arg, 2);
+  }
+}
+
+@mixin cushion($padding,$margin) {
+  padding: $padding;
+  margin: $margin;
+}
+body {
+  @include cushion(0,0);
+}
+
 #front-body {
-  margin: 0;
-  padding: 0;
+  @include cushion(0,0);
   font: 100% $font-stack;
   background: url(../assets/img/background.gif);
   background-size: cover;
 
-  // background-color: rgba(255,255,255,0.5);
-}
-#contact-body {
-  margin: 0;
-  padding: 0;
+  }
+
+#team-body {
+  @include cushion(0,0);
   font: 100% $font-stack;
-  background: url(../assets/img/back2.gif);
+  background-image: url(../assets/img/house1000.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
   h1 a {
+    font-size: 10vw;
     color: rgba(0,0,0,0.5);
   }
+  .parent {
+    display: flex;
+    justify-content: center;
+    img {
+      justify-content: center;
+      width: 25vw;
+      height: 46.43vw;
+      max-width: 175px;
+      max-height: 325px;
+
+    }
+  }
+
 }
 
 #press-body {
-  margin: 0;
-  padding: 0;
+  @include cushion(0,0);
   font: 100% $font-stack;
-  background: url(../assets/img/back3.gif);
+  background: url(../assets/img/bridge.jpeg);
   background-size: cover;
+  background-position: center;
 }
 a {
   text-decoration: none;
@@ -38,9 +71,53 @@ h1 {
   font-family: 'Playfair Display SC', serif;
   text-align: center;
 }
+#nav-bar {
+  display: flex;
+  @include size(100vw, 50px);
+  border-bottom: 1px solid lightgrey;
+  .burger {
+
+  }
+  img {
+    @include size(auto,30px);
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+}
+#dropdown{
+  display: none;
+  margin-top: 5px;
+  @include size(100vw, 10vmin);
+  border-bottom: 1px solid lightgrey;
+  .nav-tab {
+    width: 100%;
+    height: 50%;
+    color: #A39282;
+    padding-left: 1vmin;
+    h2 {
+      font-size: 4vmin;
+      line-height: 4vmin;
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+  }
+}
+.review-text {
+  height: 100vh;
+  color: black;
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr;
+}
+#russian {
+  grid-column: 2;
+  grid-row: 2;
+}
+#japanese {
+  grid-column: 4;
+  grid-row: 4;
+}
 #timer {
-  width: 100vw;
-  height: 24vw;
+  @include size(100vw,24vw);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -59,7 +136,32 @@ h1 {
     }
   }
 }
-
+html {
+  overflow: hidden;
+}
 #media, #blog, #devs {
   display: none;
+}
+
+@media screen and(max-width: 600px){
+  #press-body{
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #nav-bar{
+    border-bottom: 3px black solid;
+
+  }
+
+}
+
+@media screen and (min-width: 850px) and (max-width: 852px){
+  #press-body{
+    background: url(../assets/img/clown.jpg);
+    background-size: cover;
+    h3 {
+      color: white;
+    }
+  }
 }
